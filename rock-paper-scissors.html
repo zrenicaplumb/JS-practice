@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Rock paper scissors</title>
+		<style type="text/css">
+			body{
+				background:#fff;
+			}
+			.wrap{
+				max-width: 500px;
+				height:600px;
+				background:#272822;
+				margin:auto;
+				border-radius:10px;
+				text-align: center;
+				color:#fff;
+				
+			}
+			.wrap h1{
+				padding-top:100px;
+				color:#A6E22E;
+			}
+			button{
+				cursor: pointer;
+				background:#F9265D;
+				border:none;
+				border-radius: 10px;
+				color:#fff;
+				padding:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<h1>Rock Paper Scissors</h1>
+			<button onclick="start()">Start the Game</button>
+		</div>
+		<div class="second-div"></div>
+
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script type="text/javascript">
+	
+	function start(){
+		var computerChoice;
+		var humanChoice;
+		var total;
+		function playerChoice(){	
+			var answer = prompt("rock, paper or scissors?");
+			if(answer == "rock"){
+				humanChoice = "rock";
+				return humanChoice;
+			}
+			else if(answer == "paper"){
+				humanChoice = "paper";
+				return humanChoice;
+			}
+			else if(answer == "scissors"){
+				humanChoice = "scissors";
+				return humanChoice;
+			}
+		}
+		function computerMove(){
+			
+			var result = Math.random();
+			if(result < .3333){
+				computerChoice = "rock";
+				alert("computer chose rock");
+				return computerChoice;
+			}
+			else if(result > .3333 && result < .6666){
+				computerChoice = "paper";
+				alert("computer chose paper");
+				return computerChoice;
+			}
+			else if(result > .6666){
+				computerChoice = "scissors";
+				alert("computer chose scissors");
+				return computerChoice;
+			}
+		}
+		var humanChoice = playerChoice();
+		var computerChoice = computerMove();
+		
+		if(humanChoice == "rock" || humanChoice == "paper" || humanChoice == "scissors"){
+			if(humanChoice == computerChoice){
+			alert("Its a tie!");
+			}
+		
+			else if(computerChoice == "rock" && humanChoice == "paper"){
+				alert("You chose paper and computer chose rock, you win! ( ͡° ͜ʖ ͡°)");
+			}
+			else if(computerChoice == "rock" && humanChoice == "scissors"){
+				alert("You chose scissors and computer chose rock, you lose! : (");
+			}
+			else if(computerChoice == "paper" && humanChoice == "rock"){
+				alert("You chose rock and computer chose paper, you lose! : (");
+			}
+			else if(computerChoice == "paper" && humanChoice == "scissors"){
+				alert("You chose scissors and computer chose paper, you win! ( ͡° ͜ʖ ͡°)");
+			}
+			else if(computerChoice == "scissors" && humanChoice == "rock"){
+				alert("You chose rock and computer chose scissors, you win! ( ͡° ͜ʖ ͡°)");
+			}
+			else if(computerChoice == "scissors" && humanChoice == "paper"){
+				alert("You chose paper and computer chose scissors, you lose! : (");
+			}
+		}
+		else{
+			alert("You must enter rock, paper, or scissors.");
+			start();
+		}
+		
+	}
+	
+
+
+	</script>
+</html>
